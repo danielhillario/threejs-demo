@@ -111,7 +111,7 @@ light.position.z = 8;
 sphere.position.x = 20;
 
 let cubes = [];
-let cubeCount = 500;
+let cubeCount = 1000;
 
 for (let i = 1; i <= cubeCount; i += 1){
     let c = createCube();
