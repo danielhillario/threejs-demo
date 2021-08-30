@@ -58,6 +58,24 @@ function createCube() {
     return mesh;
 }
 
+function getRandomColor() {
+    let colors = [
+        "dodgerblue",
+        "tomato",
+        "limegreen",
+        "rebeccapurple",
+        "gold",
+        "lavender",
+        "lightcoral",
+        "papayawhip",
+    ];
+    let randomIndex = Math.floor(Math.random() * colors.length);
+    console.log(randomIndex);
+}
+
+getRandomColor();
+
+
 function createSphere() {
     let geometry = new THREE.SphereGeometry(4, 30, 30);
 
