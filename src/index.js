@@ -45,19 +45,6 @@ function createAxesHelper() {
     return axesHelper;
 }
 
-function createCube() {
-    // Geometry - the actual shape/skeleton of the object
-    let geometry = new THREE.BoxGeometry(4, 4, 4);
-    // Material - the colour/how it interacts with light
-    let material = new THREE.MeshLambertMaterial({
-        color: "tomato",
-    })
-    // Create a mesh by combining the geometry and the material
-    let mesh = new THREE.Mesh(geometry, material);
-    // Return it so we can add it to the scene
-    return mesh;
-}
-
 function getRandomColor() {
     let colors = [
         "dodgerblue",
@@ -68,26 +55,39 @@ function getRandomColor() {
         "lavender",
         "lightcoral",
         "papayawhip",
+        "violet",
     ];
     let randomIndex = Math.floor(Math.random() * colors.length);
-    console.log(randomIndex);
+    return colors[randomIndex];
 }
 
-getRandomColor();
+function createCube() {
+    // Geometry - the actual shape/skeleton of the object
+    let geometry = new THREE.BoxGeometry(4, 4, 4);
+    // Material - the colour/how it interacts with light
+    let material = new THREE.MeshLambertMaterial({
+        color: getRandomColor(),
+    })
+    // Create a mesh by combining the geometry and the material
+    let mesh = new THREE.Mesh(geometry, material);
+    // Return it so we can add it to the scene
+    return mesh;
+}
+
 
 
 function createSphere() {
     let geometry = new THREE.SphereGeometry(4, 30, 30);
 
     let material = new THREE.MeshLambertMaterial({
-        color: "violet",
+        color: getRandomColor(),
     });
     let mesh = new THREE.Mesh(geometry, material);
     return mesh;
 }
 
 function createLight() {
-    let light = new THREE.PointLight("white", 1);
+    let light = new THREE.PointLight("white", 2);
     return light;
 }
 
