@@ -8,6 +8,7 @@
 // Aframe - VR/AR
 // Babylon.js - games for THREE.js
 
+const { TOUCH } = require("three");
 const THREE = require("three");
 const orbit = require("three-orbitcontrols");
 
@@ -89,7 +90,7 @@ function createSphere() {
 }
 
 function createLight() {
-    let light = new THREE.PointLight("white", 2);
+    let light = new THREE.AmbientLight("white", 1);
     return light;
 }
 
@@ -97,6 +98,11 @@ function createLightHelper(light) {
     let helper = new THREE.PointLightHelper(light);
     return helper;
 }
+
+// function createOrbitControls() {
+//     let controls = new orbit(camera, renderer.domElement);
+//     return controls;
+// }
 
 let renderer = createRenderer();
 let scene = createScene();
@@ -106,12 +112,13 @@ let cube = createCube();
 let sphere = createSphere();
 let light = createLight();
 let lightHelper = createLightHelper(light);
+let controls = createOrbitControls();
 
-let controls = new orbit(camera, renderer.domElement);
+
 
 light.position.x = 10;
 light.position.y = 10;
-light.position.z = 8;
+light.position.z = 10;
 sphere.position.x = 20;
 
 let cubes = [];
@@ -126,6 +133,7 @@ for (let i = 1; i <= cubeCount; i += 1){
 }
 
 console.log(cubes.length);
+console.log("This works");
 
 // scene.add(axesHelper);
 // scene.add(cube, sphere, light, lightHelper, ...cubes);
